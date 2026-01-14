@@ -1,8 +1,12 @@
-spring:
-  application:
-    name: spring-cloud-config-server
-  cloud:
-    config:
-      server:
-        git:
-          uri:
+my:
+  greeting: Hello World I am from github config repo
+db:
+  mysql:
+    connection: http://localhost:8080/mysql/git-config-repo
+    username: saketulsi_mysql
+    password: mdasffdgfggh
+
+  oracle:
+    connection: http://localhost:8080/oracle/git-config-repo
+    username: saketulsi_oracle
+    password: eryttriuro
