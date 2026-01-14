@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+      routes:
+        - id: movie-catalog-service
+          uri: lb://movie-catalog-service
+          predicates:
+            - Path=/catalog/**
+          filters:
+            - StripPrefix=1
+
+filters:
+  - name: CircuitBreaker
+    args:
+      name: catalogCB
+      fallbackUri: forward:/fallback/catalog
