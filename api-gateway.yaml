@@ -20,3 +20,14 @@ filters:
     args:
       name: catalogCB
       fallbackUri: forward:/fallback/catalog
+  - name: RequestRateLimiter
+    args:
+      redis-rate-limiter.replenishRate: 10
+      redis-rate-limiter.burstCapacity: 20
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,gateway"
+
